@@ -1,0 +1,40 @@
+# Prepared for https://www.archisfera.net; activate after the hostname and TLS are configured.
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^archisfera\.net$ [NC]
+RewriteRule ^ https://www.archisfera.net%{REQUEST_URI} [R=301,L,NE]
+RewriteCond %{HTTP_HOST} ^www\.archisfera\.net$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://www.archisfera.net%{REQUEST_URI} [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[?\s] [NC]
+RewriteRule ^(.*)index\.html$ https://www.archisfera.net/$1 [R=301,L,NE]
+RewriteRule ^o-mnie/?$ https://www.archisfera.net/#pracownia [R=301,L,NE]
+RewriteRule ^uslugi/?$ https://www.archisfera.net/oferta/ [R=301,L,NE]
+RewriteRule ^cennik/?$ https://www.archisfera.net/oferta/ [R=301,L,NE]
+RewriteRule ^od-zera/?$ https://www.archisfera.net/projekty/ [R=301,L,NE]
+RewriteRule ^wnetrza/?$ https://www.archisfera.net/projekty/ [R=301,L,NE]
+RewriteRule ^rozbudowy-przebudowy-nadbudowy/?$ https://www.archisfera.net/projekty/#projekt-10 [R=301,L,NE]
+RewriteRule ^kopia-od-podstaw/?$ https://www.archisfera.net/projekty/ [R=301,L,NE]
+RewriteRule ^kopia-wnętrza/?$ https://www.archisfera.net/oferta/#technologia [R=301,L,NE]
+RewriteRule ^kopia-służba-zdrowia/?$ https://www.archisfera.net/oferta/#technologia [R=301,L,NE]
+</IfModule>
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/avif "access plus 1 month"
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType font/ttf "access plus 1 year"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>

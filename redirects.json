@@ -1,0 +1,47 @@
+[
+  {
+    "from": "/o-mnie",
+    "to": "https://www.archisfera.net/#pracownia",
+    "status": 301
+  },
+  {
+    "from": "/uslugi",
+    "to": "https://www.archisfera.net/oferta/",
+    "status": 301
+  },
+  {
+    "from": "/cennik",
+    "to": "https://www.archisfera.net/oferta/",
+    "status": 301
+  },
+  {
+    "from": "/od-zera",
+    "to": "https://www.archisfera.net/projekty/",
+    "status": 301
+  },
+  {
+    "from": "/wnetrza",
+    "to": "https://www.archisfera.net/projekty/",
+    "status": 301
+  },
+  {
+    "from": "/rozbudowy-przebudowy-nadbudowy",
+    "to": "https://www.archisfera.net/projekty/#projekt-10",
+    "status": 301
+  },
+  {
+    "from": "/kopia-od-podstaw",
+    "to": "https://www.archisfera.net/projekty/",
+    "status": 301
+  },
+  {
+    "from": "/kopia-wnętrza",
+    "to": "https://www.archisfera.net/oferta/#technologia",
+    "status": 301
+  },
+  {
+    "from": "/kopia-służba-zdrowia",
+    "to": "https://www.archisfera.net/oferta/#technologia",
+    "status": 301
+  }
+]
