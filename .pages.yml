@@ -86,3 +86,5 @@ content:
       - name: titleLocation
         type: string
         hidden: true
+
+# Panel realizacji: synchronizacja po aktywacji dostępu GitHub.
