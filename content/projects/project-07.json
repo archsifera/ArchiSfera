@@ -2,7 +2,7 @@
   "id": 7,
   "title": "Budynek mieszkalny jednorodzinny pod Łodzią",
   "location": "Okolice Łodzi",
-  "area": 270,
+  "area": "270",
   "status": "Budynek zrealizowany",
   "perBuilding": false,
   "description": "Budynek mieszkalny jednorodzinny pod Łodzią.",

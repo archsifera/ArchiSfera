@@ -39,11 +39,10 @@ content:
         required: true
       - name: area
         label: Powierzchnia użytkowa w m²
-        type: number
+        type: string
         required: true
-        options:
-          min: 0.01
-          step: 0.01
+        pattern: '^[0-9]+([.,][0-9]{1,2})?$'
+        description: Podaj liczbę bez jednostki, np. 123 lub 123,50.
       - name: perBuilding
         label: Powierzchnia dotyczy pojedynczego budynku
         type: boolean

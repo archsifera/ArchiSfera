@@ -2,7 +2,7 @@
   "id": 1,
   "title": "Budynek mieszkalny wielorodzinny w Łodzi",
   "location": "Łódź",
-  "area": 2422,
+  "area": "2422",
   "status": "Budynek zrealizowany",
   "perBuilding": false,
   "description": "Budynek mieszkalny wielorodzinny w Łodzi.",

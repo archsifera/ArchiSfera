@@ -25,7 +25,8 @@ export async function loadProjects(root) {
     if (!Number.isSafeInteger(id) || id < 1 || ids.has(id)) throw new Error(`${name}: nieprawidłowy lub powtórzony identyfikator`);
     ids.add(id);
     for (const key of ['title', 'location', 'status']) if (!plain(p[key])) throw new Error(`${name}: uzupełnij pole ${key}`);
-    if (!Number.isFinite(p.area) || p.area <= 0) throw new Error(`${name}: podaj powierzchnię większą od zera`);
+    const area = typeof p.area === 'string' && /^[0-9]+([.,][0-9]{1,2})?$/.test(p.area.trim()) ? Number(p.area.trim().replace(',', '.')) : p.area;
+    if (!Number.isFinite(area) || area <= 0) throw new Error(`${name}: podaj powierzchnię większą od zera`);
     if (!Array.isArray(p.images) || !p.images.length || p.images.length > 40) throw new Error(`${name}: galeria musi zawierać od 1 do 40 zdjęć`);
     const images = [...new Set(p.images.map(imagePath))];
     const cover = p.cover ? imagePath(p.cover) : images[0];
@@ -34,7 +35,7 @@ export async function loadProjects(root) {
     const splitTitleMatches = p.titleMain && p.titleLocation &&
       `${p.titleMain} ${p.titleLocation}`.replace(/\s+/g, ' ').trim() === p.title.replace(/\s+/g, ' ').trim();
     all.push({
-      ...p, id, images, cover,
+      ...p, id, images, cover, area,
       description: typeof p.description === 'string' ? p.description.slice(0, 10000) : '',
       titleMain: splitTitleMatches ? p.titleMain : p.title,
       titleLocation: splitTitleMatches ? p.titleLocation : '',

@@ -2,7 +2,7 @@
   "id": 9,
   "title": "Budynek mieszkalny jednorodzinny w Łodzi",
   "location": "Łódź",
-  "area": 300,
+  "area": "300",
   "status": "Budynek zrealizowany",
   "perBuilding": false,
   "description": "Budynek mieszkalny jednorodzinny w Łodzi.",

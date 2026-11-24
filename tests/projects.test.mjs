@@ -24,11 +24,12 @@ test('CMS create, edit, reorder, unpublish and delete flow preserves stable link
   const newId = projects[0].id;
   assert.equal(projects[1].id, 4);
   assert.equal(projects[0].images[0], 'assets/portfolio/photo.webp');
-  await save('second', { title: 'Nowa nazwa', order: 30 });
+  await save('second', { title: 'Nowa nazwa', order: 30, area: '123,50' });
   projects = await loadProjects(root);
   assert.equal(projects[0].id, 4);
   assert.equal(projects[1].id, newId);
   assert.equal(projects[1].title, 'Nowa nazwa');
+  assert.equal(projects[1].area, 123.5);
   await save('first', { id: 4, published: false });
   assert.equal((await loadProjects(root)).length, 1);
   await unlink(path.join(root, 'content/projects/second.json'));
