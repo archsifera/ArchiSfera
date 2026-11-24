@@ -43,6 +43,7 @@ content:
         required: true
         options:
           min: 0.01
+          step: 0.01
       - name: perBuilding
         label: Powierzchnia dotyczy pojedynczego budynku
         type: boolean
