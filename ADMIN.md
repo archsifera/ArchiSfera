@@ -11,8 +11,7 @@ zgoda na dostęp zewnętrznej aplikacji; nie należy instalować jej dla wszystk
 repozytoriów. Bez tego kroku panel nie ma możliwości zapisywania zmian.
 Nie przekazujemy panelowi haseł GitHuba ani tokenu CLI.
 
-Status: konfiguracja repozytorium przygotowana; instalacja aplikacji oraz
-rzeczywisty zapis z interfejsu wymagają osobnego potwierdzenia.
+Status: aplikację zainstalowano dla repozytorium ArchiSfera po zgodzie właściciela. Zapis przez panel i automatyczną publikację sprawdzono 24.11.2026.
 
 ## Obsługa
 
@@ -44,3 +43,7 @@ Pliki robocze CMS ani wpisy nie są publikowane do katalogu produkcyjnego.
 Panel jest wyłączony z indeksowania; autoryzację zapisu egzekwuje GitHub.
 
 Dokumentacja: https://pagescms.org/docs/quick-start/
+
+## Potwierdzony test na działającej stronie — 24.11.2026
+
+Zapis statusu realizacji nr 4 przez Pages CMS: commit 04cd543. Publikacja i kontrola HTTPS potwierdziły zmianę na stronie głównej, w portfolio i danych galerii. Przywrócenie oryginalnego statusu również przez panel: commit 561590b. Publikacja 45491512924 zakończyła się sukcesem; oba publiczne adresy zwracają HTTP 200, oryginalny status jest obecny, a dopisek testowy usunięty. Dane zdjęć i pozostałe pola porównano z wersją sprzed testu (z normalizacją ścieżek /assets na assets).
