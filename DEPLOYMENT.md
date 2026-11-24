@@ -1,7 +1,7 @@
 # Wdrożenie ArchiSfera
 
 Docelowy adres: **https://www.archisfera.net/**. Stan przygotowania: 23.11.2026.
-Obecna domena nadal prowadzi do starej strony Wix; przygotowanie plików nie zmienia DNS.
+DNS przełączono 24.11.2026 na GitHub Pages. Wystawienie certyfikatu HTTPS wymaga jeszcze potwierdzenia.
 
 ## Budowanie
 
@@ -93,9 +93,21 @@ Właściciel repozytorium: `archsifera`, repozytorium: `ArchiSfera`.
 `npm run build:pages` wymaga zmiennej `GITHUB_REPOSITORY=archsifera/ArchiSfera`
 (automatyczna w GitHub Actions). Bez CNAME tworzy podgląd w `dist/`, z prefiksem
 repozytorium i `noindex`. Po przygotowaniu domeny plik CNAME włącza produkcyjny
-build dla www.archisfera.net. Nie zmieniono jeszcze DNS ani domeny GitHub Pages.
+build dla www.archisfera.net. DNS i domenę GitHub Pages skonfigurowano 24.11.2026.
 
 GitHub Pages nie obsługuje reguł Apache z `.htaccess`. Stare adresy korzystają
 z dołączonych stron przekierowujących HTML; nie są to przekierowania HTTP 301.
 Jeśli wymagane będą odpowiedzi HTTP 301 dla tych ścieżek, należy skonfigurować
 warstwę przekierowań obsługującą tę funkcję przed GitHub Pages lub inny hosting.
+
+## Stan podłączenia — 24.11.2026
+
+- GitHub Pages: repozytorium archsifera/ArchiSfera, domena www.archisfera.net.
+- CNAME w repozytorium aktywuje build produkcyjny, indeksowanie i ścieżki od korzenia.
+- A dla archisfera.net: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153.
+- CNAME dla www: archsifera.github.io. TTL rekordów: jedna godzina.
+- DNS pozostaje w Wix (ns4.wixdns.net, ns5.wixdns.net).
+- Wszystkie pięć rekordów MX i oba istniejące TXT porównano z kopią i pozostają identyczne.
+- Do finalnej kontroli: certyfikat, wymuszenie HTTPS, działanie czterech stron,
+  przekierowanie domeny bez www, sitemap.xml i robots.txt. Nie oznaczać uruchomienia
+  jako zakończonego przed potwierdzeniem HTTPS.

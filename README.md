@@ -1,7 +1,7 @@
 # ArchiSfera
 
 Strona pracowni architektonicznej Kamili Chęcielewskiej. Docelowy adres:
-https://www.archisfera.net/. Podgląd: https://archsifera.github.io/ArchiSfera/.
+https://www.archisfera.net/. Hosting: GitHub Pages na koncie `archsifera`.
 
 ## Praca lokalna
 
@@ -66,3 +66,10 @@ prefiksem `/ArchiSfera/`. Po przygotowaniu DNS i konfiguracji domeny w GitHub Pa
 dodanie pliku `CNAME` o treści `www.archisfera.net` włącza build produkcyjny
 z indeksowaniem, czystymi ścieżkami i canonical dla domeny klientki.
 Nie należy dodawać CNAME przed gotowością domeny i DNS.
+
+## Podłączenie domeny — 24.11.2026
+
+Plik `CNAME` i ustawienie GitHub Pages wskazują `www.archisfera.net`. DNS w Wix
+zapisano jako cztery adresy A GitHub Pages oraz CNAME www → archsifera.github.io.
+Rekordy Google Workspace MX i TXT pozostawiono bez zmian. Przy zmianie domeny
+należy sprawdzić wystawienie certyfikatu i włączyć HTTPS w ustawieniach Pages.
