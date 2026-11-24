@@ -1,0 +1,22 @@
+{
+  "id": 7,
+  "title": "Budynek mieszkalny jednorodzinny pod Łodzią",
+  "location": "Okolice Łodzi",
+  "area": 270,
+  "status": "Budynek zrealizowany",
+  "perBuilding": false,
+  "description": "Budynek mieszkalny jednorodzinny pod Łodzią.",
+  "images": [
+    "assets/portfolio/project-07-01.webp",
+    "assets/portfolio/project-07-02.webp",
+    "assets/portfolio/project-07-03.webp",
+    "assets/portfolio/project-07-04.webp"
+  ],
+  "cover": "assets/portfolio/project-07-02.webp",
+  "titleMain": "Budynek mieszkalny jednorodzinny",
+  "titleLocation": "pod Łodzią",
+  "order": 60,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Budynek mieszkalny jednorodzinny"
+}

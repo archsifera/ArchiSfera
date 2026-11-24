@@ -1,0 +1,21 @@
+{
+  "id": 5,
+  "title": "Budynki mieszkalne jednorodzinne w Rąbieniu",
+  "location": "Rąbień",
+  "area": 173,
+  "status": "Budynki zrealizowane",
+  "perBuilding": true,
+  "description": "Budynki mieszkalne jednorodzinne w Rąbieniu.",
+  "images": [
+    "assets/portfolio/project-05-01.webp",
+    "assets/portfolio/project-05-02.webp",
+    "assets/portfolio/project-05-03.webp"
+  ],
+  "cover": "assets/portfolio/project-05-02.webp",
+  "titleMain": "Budynki mieszkalne jednorodzinne",
+  "titleLocation": "w Rąbieniu",
+  "order": 50,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Budynki mieszkalne jednorodzinne"
+}

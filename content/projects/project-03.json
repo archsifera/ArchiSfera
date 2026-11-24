@@ -1,0 +1,21 @@
+{
+  "id": 3,
+  "title": "Budynki mieszkalne wielorodzinne w Łodzi",
+  "location": "Łódź",
+  "area": 1900,
+  "status": "Budynki zrealizowane",
+  "perBuilding": false,
+  "description": "Budynki mieszkalne wielorodzinne w Łodzi.",
+  "images": [
+    "assets/portfolio/project-03-01.webp",
+    "assets/portfolio/project-03-02.webp",
+    "assets/portfolio/project-03-03.webp"
+  ],
+  "cover": "assets/portfolio/project-03-01.webp",
+  "titleMain": "Budynki mieszkalne wielorodzinne",
+  "titleLocation": "w Łodzi",
+  "order": 90,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Budynki mieszkalne wielorodzinne"
+}

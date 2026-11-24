@@ -62,7 +62,9 @@ for (const image of images) {
   await access(path.join(dist, image.pathname));
 }
 assert.equal(new Set(images.map((url) => url.href)).size, images.length);
-assert.equal(images.length, projects.reduce((sum, project) => sum + project.images.length, 0) + 2);
+const portfolioGraph = JSON.parse(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/.exec(builtPages.get('/projekty/'))[1]);
+const publishedImages = portfolioGraph['@graph'].find(node => node['@type'] === 'ItemList').itemListElement.flatMap(entry => entry.item.image);
+assert.equal(images.length, new Set(publishedImages).size + 2);
 const robots = await readFile(path.join(dist, "robots.txt"), "utf8");
 assert(robots.includes(`Sitemap: ${absolute("/sitemap.xml")}`));
 assert(!/^Disallow:\s*\/$/m.test(robots));

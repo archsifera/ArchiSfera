@@ -1,0 +1,88 @@
+media:
+  input: assets/portfolio
+  output: /assets/portfolio
+  extensions: [jpg, jpeg, png, webp, avif]
+  rename: random
+content:
+  - name: projekty
+    label: Realizacje
+    type: collection
+    path: content/projects
+    format: json
+    filename:
+      template: "{year}{month}{day}-{hour}{minute}{second}-{primary}.json"
+      field: false
+    view:
+      primary: title
+      fields: [title, location, order, published]
+      sort: [order, title]
+      search: [title, location, status]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: id
+        label: Identyfikator
+        type: number
+        hidden: true
+      - name: title
+        label: Nazwa realizacji
+        type: string
+        required: true
+      - name: shortTitle
+        label: Krótka nazwa na stronie głównej
+        type: string
+        description: Np. Dom jednorodzinny. Jeśli pole jest puste, używana jest pełna nazwa.
+      - name: location
+        label: Miejscowość
+        type: string
+        required: true
+      - name: area
+        label: Powierzchnia użytkowa w m²
+        type: number
+        required: true
+        options:
+          min: 0.01
+      - name: perBuilding
+        label: Powierzchnia dotyczy pojedynczego budynku
+        type: boolean
+      - name: status
+        label: Status realizacji
+        type: string
+        required: true
+        description: Np. Budynek zrealizowany lub W trakcie realizacji.
+      - name: description
+        label: Opis projektu
+        type: text
+      - name: cover
+        label: Zdjęcie główne
+        type: image
+        description: Wybierz zdjęcie pokazywane na liście realizacji. Bez wyboru użyte zostanie pierwsze zdjęcie galerii.
+      - name: images
+        label: Galeria wizualizacji
+        type: image
+        required: true
+        options:
+          multiple:
+            max: 40
+          unique: true
+      - name: order
+        label: Kolejność na stronie
+        type: number
+        description: Mniejsza liczba oznacza wyższą pozycję. Obecne projekty mają 10, 20, 30 itd.
+        options:
+          min: 0
+      - name: featured
+        label: Pokaż w Wybranych projektach
+        type: boolean
+        description: Na stronie głównej są pierwsze cztery zaznaczone realizacje według kolejności.
+      - name: published
+        label: Opublikowany
+        type: boolean
+        description: Wyłącz, aby ukryć realizację bez usuwania jej z panelu. Włącz, gdy projekt jest gotowy.
+      - name: titleMain
+        type: string
+        hidden: true
+      - name: titleLocation
+        type: string
+        hidden: true

@@ -1,0 +1,21 @@
+{
+  "id": 8,
+  "title": "Budynki mieszkalne jednorodzinne dwulokalowe w zabudowie bliźniaczej w Ksawerowie",
+  "location": "Ksawerów",
+  "area": 220,
+  "status": "W trakcie realizacji",
+  "perBuilding": true,
+  "description": "Budynki mieszkalne jednorodzinne dwulokalowe w zabudowie bliźniaczej w Ksawerowie.",
+  "images": [
+    "assets/portfolio/project-08-01.webp",
+    "assets/portfolio/project-08-02.webp",
+    "assets/portfolio/project-08-03.webp"
+  ],
+  "cover": "assets/portfolio/project-08-03.webp",
+  "titleMain": "Budynki mieszkalne jednorodzinne dwulokalowe w zabudowie bliźniaczej",
+  "titleLocation": "w Ksawerowie",
+  "order": 20,
+  "published": true,
+  "featured": true,
+  "shortTitle": "Domy dwulokalowe"
+}

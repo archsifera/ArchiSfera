@@ -1,0 +1,22 @@
+{
+  "id": 6,
+  "title": "Budynek mieszkalny jednorodzinny w Sokolnikach Las",
+  "location": "Sokolniki Las",
+  "area": 195,
+  "status": "W trakcie realizacji",
+  "perBuilding": false,
+  "description": "Budynek mieszkalny jednorodzinny w Sokolnikach Las.",
+  "images": [
+    "assets/portfolio/project-06-revised-01.webp",
+    "assets/portfolio/project-06-revised-02.webp",
+    "assets/portfolio/project-06-revised-03.webp",
+    "assets/portfolio/project-06-revised-04.webp"
+  ],
+  "cover": "assets/portfolio/project-06-revised-01.webp",
+  "titleMain": "Budynek mieszkalny jednorodzinny",
+  "titleLocation": "w Sokolnikach Las",
+  "order": 70,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Budynek mieszkalny jednorodzinny"
+}

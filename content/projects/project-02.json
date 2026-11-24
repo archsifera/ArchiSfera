@@ -1,0 +1,23 @@
+{
+  "id": 2,
+  "title": "Budynek mieszkalny wielorodzinny w Łodzi",
+  "location": "Łódź",
+  "area": 2375,
+  "status": "W trakcie realizacji",
+  "perBuilding": false,
+  "description": "Budynek mieszkalny wielorodzinny w Łodzi.",
+  "images": [
+    "assets/portfolio/project-02-01.webp",
+    "assets/portfolio/project-02-02.webp",
+    "assets/portfolio/project-02-03.webp",
+    "assets/portfolio/project-02-04.webp",
+    "assets/portfolio/project-02-05.webp"
+  ],
+  "cover": "assets/portfolio/project-02-01.webp",
+  "titleMain": "Budynek mieszkalny wielorodzinny",
+  "titleLocation": "w Łodzi",
+  "order": 40,
+  "published": true,
+  "featured": true,
+  "shortTitle": "Budynek wielorodzinny"
+}

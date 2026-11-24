@@ -1,0 +1,21 @@
+{
+  "id": 9,
+  "title": "Budynek mieszkalny jednorodzinny w Łodzi",
+  "location": "Łódź",
+  "area": 300,
+  "status": "Budynek zrealizowany",
+  "perBuilding": false,
+  "description": "Budynek mieszkalny jednorodzinny w Łodzi.",
+  "images": [
+    "assets/portfolio/project-09-revised-01.webp",
+    "assets/portfolio/project-09-revised-02.webp",
+    "assets/portfolio/project-09-revised-03.webp"
+  ],
+  "cover": "assets/portfolio/project-09-revised-01.webp",
+  "titleMain": "Budynek mieszkalny jednorodzinny",
+  "titleLocation": "w Łodzi",
+  "order": 80,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Budynek mieszkalny jednorodzinny"
+}

@@ -26,6 +26,8 @@ jobs:
           node-version: "24"
       - name: Validate production build and SEO
         run: |
+          npm ci
+          npm test
           npm run build
           npm run check:seo
       - name: Build for GitHub Pages

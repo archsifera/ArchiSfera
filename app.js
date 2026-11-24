@@ -234,7 +234,7 @@ if (hero) {
 
 // Mobile featured projects crossfade inside a fixed frame, without scrolling the page.
 const featured = find("#featured-projects");
-if (featured) {
+if (featured && featured.querySelector(".project-card")) {
   const cards = [...featured.querySelectorAll(".project-card")];
   const controls = find(".featured-controls");
   const pause = find("#featured-pause");
@@ -377,6 +377,12 @@ function openProject(project) {
   area.className = "project-area-value";
   area.textContent = `${project.area.toLocaleString("pl-PL")}\u00a0m²`;
   find("#project-description").replaceChildren(document.createTextNode(`${areaLabel} · `), area);
+  if (project.description && project.description !== project.title + ".") {
+    const description = document.createElement("p");
+    description.className = "project-summary";
+    description.textContent = project.description;
+    find("#project-description").append(description);
+  }
   const thumbnails = project.images.map((source, index) => {
     const button = document.createElement("button");
     button.type = "button";

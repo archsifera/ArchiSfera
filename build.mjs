@@ -1,5 +1,8 @@
 import { mkdir, cp, writeFile, readFile, rm } from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
+import sharp from "sharp";
+import { renderProjects, browserProjects } from "./scripts/projects.mjs";
 import { site, pages, redirects } from "./site.config.mjs";
 import {
   applySeo,
@@ -31,13 +34,35 @@ if (path.dirname(dist) !== root || !["dist", "dist-preview"].includes(path.basen
   throw new Error("Invalid build directory");
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
-const projects = await projectsFrom(root),
-  versions = await versionsFrom(root);
+const projects = await projectsFrom(root);
+const sizes = new Map();
+const optimized = new Map();
+for (const source of new Set(projects.flatMap(p => p.images))) {
+  const input = await readFile(path.join(root, source));
+  if (input.length > 20 * 1024 * 1024) throw new Error(`Zdjęcie przekracza 20 MB: ${source}`);
+  const metadata = await sharp(input, { limitInputPixels: 50000000 }).metadata();
+  sizes.set(source, { width: metadata.width, height: metadata.height });
+  if (!source.toLowerCase().endsWith('.webp')) {
+    const hash = createHash('sha256').update(input).digest('hex').slice(0, 20);
+    const target = `assets/portfolio/generated/${hash}.webp`;
+    await mkdir(path.dirname(path.join(root, target)), { recursive: true });
+    const result = await sharp(input, { limitInputPixels: 50000000 }).rotate().resize({ width: 2200, withoutEnlargement: true }).webp({ quality: 86 }).toBuffer({ resolveWithObject: true });
+    await writeFile(path.join(root, target), result.data);
+    sizes.set(target, { width: result.info.width, height: result.info.height });
+    optimized.set(source, target);
+  }
+}
+for (const project of projects) {
+  project.images = project.images.map(image => optimized.get(image) || image);
+  project.cover = optimized.get(project.cover) || project.cover;
+}
+await writeFile(path.join(root, 'portfolio.js'), browserProjects(projects));
+const versions = await versionsFrom(root);
 const files = ["styles.css", "subpages.css", "motion.css", "app.js", "motion.js", "theme.js", "portfolio.js"];
 const texts = [];
 for (const page of pages) {
   let html = applySeo(
-    await readFile(path.join(root, page.file), "utf8"),
+    renderProjects(await readFile(path.join(root, page.file), "utf8"), projects, sizes),
     page,
     projects,
     versions,
@@ -75,6 +100,8 @@ await cp(path.join(root, "assets/fonts/OFL.txt"), path.join(dist, "assets/fonts/
 await writeFile(path.join(dist, "robots.txt"), robotsFor());
 await writeFile(path.join(dist, "sitemap.xml"), sitemapFor(projects));
 await writeFile(path.join(dist, "404.html"), notFoundPage().replace(/href="\//g, `href="${pagesBase}`));
+await cp(path.join(root, 'admin'), path.join(dist, 'admin'), { recursive: true });
+await cp(path.join(root, 'admin'), path.join(dist, 'panel'), { recursive: true });
 if (production) {
   if (pagesBuild && cname) await writeFile(path.join(dist, "CNAME"), cname.trim() + "\n");
   await writeFile(path.join(dist, ".htaccess"), apacheConfig());

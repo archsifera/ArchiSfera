@@ -1,0 +1,22 @@
+{
+  "id": 10,
+  "title": "Rozbudowa i przebudowa budynku mieszkalnego jednorodzinnego w Warszawie",
+  "location": "Warszawa",
+  "area": 515,
+  "status": "Budowa zrealizowana",
+  "perBuilding": false,
+  "description": "Rozbudowa i przebudowa budynku mieszkalnego jednorodzinnego w Warszawie.",
+  "images": [
+    "assets/portfolio/project-10-01.webp",
+    "assets/portfolio/project-10-02.webp",
+    "assets/portfolio/project-10-03.webp",
+    "assets/portfolio/project-10-04.webp"
+  ],
+  "cover": "assets/portfolio/project-10-01.webp",
+  "titleMain": "Rozbudowa i przebudowa budynku mieszkalnego jednorodzinnego",
+  "titleLocation": "w Warszawie",
+  "order": 100,
+  "published": true,
+  "featured": false,
+  "shortTitle": "Rozbudowa i przebudowa budynku mieszkalnego jednorodzinnego"
+}

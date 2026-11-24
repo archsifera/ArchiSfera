@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import vm from "node:vm";
+import { loadProjects } from "./projects.mjs";
 import path from "node:path";
 import { site, pages, redirects } from "../site.config.mjs";
 
@@ -12,9 +12,7 @@ export const escape = (text) =>
     .replaceAll(">", "&gt;");
 export const absolute = (value) => new URL(value, site.origin + "/").href;
 export async function projectsFrom(root) {
-  const context = { window: {} };
-  vm.runInNewContext(await readFile(path.join(root, "portfolio.js"), "utf8"), context);
-  return context.window.archisferaProjects;
+  return loadProjects(root);
 }
 export async function versionsFrom(root) {
   const names = [
@@ -214,7 +212,7 @@ export function sitemapFor(projects) {
   );
 }
 export const robotsFor = () =>
-  `User-agent: *\nAllow: /\nDisallow: /podglad-projektow/\nDisallow: /assets/previews/\n\nSitemap: ${absolute("/sitemap.xml")}\n`;
+  `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /panel/\nDisallow: /podglad-projektow/\nDisallow: /assets/previews/\n\nSitemap: ${absolute("/sitemap.xml")}\n`;
 export function apacheConfig() {
   const host = new URL(site.origin).hostname.replaceAll(".", "\\.");
   const bare = new URL(site.origin).hostname.replace(/^www\./, "").replaceAll(".", "\\.");

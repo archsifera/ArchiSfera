@@ -1,13 +1,15 @@
 # Wdrożenie ArchiSfera
 
 Docelowy adres: **https://www.archisfera.net/**. Stan wdrożenia: 24.11.2026.
-DNS przełączono 24.11.2026 na GitHub Pages. Wystawienie certyfikatu HTTPS wymaga jeszcze potwierdzenia.
+DNS przełączono 24.11.2026 na GitHub Pages. Certyfikat obejmuje www i domenę bez www; HTTPS jest wymuszany.
 
 ## Budowanie
 
-Wymagany Node.js 20 lub nowszy. Brak zależności do instalowania.
+Wymagany Node.js 24 lub nowszy. Zależności instalujemy przez npm ci (Sharp do optymalizacji zdjęć).
 
 ```sh
+npm ci
+npm test
 npm run seo:prepare
 npm run build
 npm run check:seo
@@ -40,11 +42,8 @@ Domena i DNS pozostają na koncie właścicielki w Wix. Dostęp właściciela
 potwierdzono 24.11.2026 i przełączono rekordy A oraz CNAME www na GitHub Pages.
 Rekordy pocztowe MX i TXT zachowano bez zmian.
 
-Publikacja Pages ma status built. Weryfikacja DNS po stronie GitHuba nadal
-zgłasza NotServedByPagesError i blokuje wystawienie certyfikatu, mimo poprawnych
-odpowiedzi obu serwerów autorytatywnych Wix oraz resolverów Google i Cloudflare.
-HTTPS nie został jeszcze potwierdzony. Po zakończeniu weryfikacji należy włączyć
-Enforce HTTPS i wykonać poniższą kontrolę publicznych adresów.
+Publikacja Pages ma status built. Certyfikat został zatwierdzony dla obu adresów, a Enforce HTTPS jest włączone. HTTPS www potwierdzono rzeczywistym żądaniem z walidacją certyfikatu.
+
 Na Apache/LiteSpeed z włączonym `mod_rewrite` plik `.htaccess` ustawia trwałe
 przekierowania starych adresów oraz HTTPS i www. Konfiguracja wymaga sprawdzenia
 na docelowym serwerze. Na innym hostingu skonfiguruj przekierowania HTTP 301
