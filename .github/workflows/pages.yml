@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -19,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://www.archisfera.net/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,19 +26,29 @@ jobs:
           node-version: "24"
       - name: Validate production build and SEO
         run: |
-          node --test scripts/deploy-pages.test.mjs
           npm run build
           npm run check:seo
       - name: Build for GitHub Pages
         run: npm run build:pages
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        id: upload
+      - name: Checkout published branch
+        uses: actions/checkout@v4
         with:
-          path: dist
-      - name: Deploy
-        id: deployment
-        run: node scripts/deploy-pages.mjs
+          ref: gh-pages
+          path: published
+      - name: Publish verified files
+        run: |
+          test -f dist/index.html
+          test -d published/.git
+          rsync -a --delete --exclude='.git' dist/ published/
+          touch published/.nojekyll
+          git -C published config user.name 'github-actions[bot]'
+          git -C published config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C published add -A
+          if ! git -C published diff --cached --quiet; then
+            git -C published commit -m "Publish ${GITHUB_SHA}"
+            git -C published push origin HEAD:gh-pages
+          fi
+      - name: Request GitHub Pages build
+        run: gh api "repos/${GITHUB_REPOSITORY}/pages/builds" --method POST
         env:
           GH_TOKEN: ${{ github.token }}
-          PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}

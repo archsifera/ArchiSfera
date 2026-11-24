@@ -111,3 +111,11 @@ warstwę przekierowań obsługującą tę funkcję przed GitHub Pages lub inny h
 - Do finalnej kontroli: certyfikat, wymuszenie HTTPS, działanie czterech stron,
   przekierowanie domeny bez www, sitemap.xml i robots.txt. Nie oznaczać uruchomienia
   jako zakończonego przed potwierdzeniem HTTPS.
+
+## Naprawa publikacji — 24.11.2026
+
+Usługa artefaktów Actions zwracała pustą listę paczek mimo potwierdzonego uploadu.
+Gotowe pliki są teraz zapisywane w gałęzi `gh-pages`, a Pages ma ustawiony tryb
+`legacy` i źródło `gh-pages` / root. Workflow main: build, kontrola SEO, synchronizacja
+wyniku bez nadpisywania katalogu .git i jawne zlecenie publikacji przez API Pages.
+Nie zmieniać źródła Pages na main: źródła mają flagi podglądu i nie są paczką produkcyjną.

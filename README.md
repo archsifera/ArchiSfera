@@ -73,3 +73,10 @@ Plik `CNAME` i ustawienie GitHub Pages wskazują `www.archisfera.net`. DNS w Wix
 zapisano jako cztery adresy A GitHub Pages oraz CNAME www → archsifera.github.io.
 Rekordy Google Workspace MX i TXT pozostawiono bez zmian. Przy zmianie domeny
 należy sprawdzić wystawienie certyfikatu i włączyć HTTPS w ustawieniach Pages.
+
+## Sposób publikacji
+
+`main` przechowuje źródła. Workflow buduje i sprawdza wersję produkcyjną,
+kopiuje wynik do gałęzi `gh-pages` i zleca GitHubowi publikację. GitHub Pages
+ma źródło `gh-pages` / root. Plik `.nojekyll` wyłącza przetwarzanie gotowego HTML.
+Ten sposób nie zależy od wyszukiwania paczek w usłudze artefaktów Actions.
