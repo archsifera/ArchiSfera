@@ -1,6 +1,6 @@
 # Wdrożenie ArchiSfera
 
-Docelowy adres: **https://www.archisfera.net/**. Stan przygotowania: 23.11.2026.
+Docelowy adres: **https://www.archisfera.net/**. Stan wdrożenia: 24.11.2026.
 DNS przełączono 24.11.2026 na GitHub Pages. Wystawienie certyfikatu HTTPS wymaga jeszcze potwierdzenia.
 
 ## Budowanie
@@ -34,18 +34,17 @@ Po zmianie treści ustaw rzeczywistą datę aktualizacji `lastmod` i ponów budo
 
 ## Hosting i domena
 
-Serwery DNS są obecnie obsługiwane przez Wix. Zaproszenie do współpracy zostało
-odnalezione w korespondencji; zakres uprawnień do DNS nie został jeszcze
-potwierdzony. Po zalogowaniu 23.11 konto jakubskrzypiec.dev@gmail.com ma pustą
-listę stron; ArchiSfera nie jest jeszcze widoczna jako udostępniona strona.
-Właściciel konta powinien przyjąć zaproszenie klientki z wiadomości Wix.
+Kod źródłowy znajduje się na main w repozytorium archsifera/ArchiSfera.
+Hosting zapewnia GitHub Pages, publikujący wynik budowania z gałęzi gh-pages.
+Domena i DNS pozostają na koncie właścicielki w Wix. Dostęp właściciela
+potwierdzono 24.11.2026 i przełączono rekordy A oraz CNAME www na GitHub Pages.
+Rekordy pocztowe MX i TXT zachowano bez zmian.
 
-Gotowe pliki statyczne wymagają hostingu obsługującego ich publikację. Po wybraniu
-hostingu należy skonfigurować domenę i certyfikat TLS, a następnie odpowiednie
-rekordy A/AAAA lub CNAME zgodnie z instrukcją tego hostingu. Istniejące rekordy
-MX i TXT związane z pocztą należy zachować. Nie dodano CNAME do repozytorium
-ani nie przełączono GitHub Pages na domenę klientki, aby zachować działający podgląd.
-
+Publikacja Pages ma status built. Weryfikacja DNS po stronie GitHuba nadal
+zgłasza NotServedByPagesError i blokuje wystawienie certyfikatu, mimo poprawnych
+odpowiedzi obu serwerów autorytatywnych Wix oraz resolverów Google i Cloudflare.
+HTTPS nie został jeszcze potwierdzony. Po zakończeniu weryfikacji należy włączyć
+Enforce HTTPS i wykonać poniższą kontrolę publicznych adresów.
 Na Apache/LiteSpeed z włączonym `mod_rewrite` plik `.htaccess` ustawia trwałe
 przekierowania starych adresów oraz HTTPS i www. Konfiguracja wymaga sprawdzenia
 na docelowym serwerze. Na innym hostingu skonfiguruj przekierowania HTTP 301
