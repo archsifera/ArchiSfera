@@ -3,24 +3,24 @@ window.archisferaProjects = [
   {
     "id": 4,
     "title": "Budynki mieszkalne jednorodzinne w zabudowie bliźniaczej w Ksawerowie",
+    "shortTitle": "Zabudowa bliźniacza",
     "location": "Ksawerów",
     "area": 123,
-    "status": "Budynki zrealizowane",
     "perBuilding": true,
+    "status": "Budynki zrealizowane · test panelu",
     "description": "Budynki mieszkalne jednorodzinne w zabudowie bliźniaczej w Ksawerowie.",
+    "cover": "assets/portfolio/project-04-02.webp",
     "images": [
       "assets/portfolio/project-04-01.webp",
       "assets/portfolio/project-04-02.webp",
       "assets/portfolio/project-04-03.webp",
       "assets/portfolio/project-04-04.webp"
     ],
-    "cover": "assets/portfolio/project-04-02.webp",
-    "titleMain": "Budynki mieszkalne jednorodzinne w zabudowie bliźniaczej",
-    "titleLocation": "w Ksawerowie",
     "order": 10,
-    "published": true,
     "featured": true,
-    "shortTitle": "Zabudowa bliźniacza"
+    "published": true,
+    "titleMain": "Budynki mieszkalne jednorodzinne w zabudowie bliźniaczej",
+    "titleLocation": "w Ksawerowie"
   },
   {
     "id": 8,
